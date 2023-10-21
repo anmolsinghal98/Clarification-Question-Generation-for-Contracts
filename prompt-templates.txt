@@ -1,0 +1,41 @@
+#Direct Prompt
+prompt_template = """
+You are a legal assistant tasked with analyzing contractual sentences for ambiguities.
+Task: Given a contractual sentence, predict if the sentence is ambiguous or unambiguous. In case the sentence is ambiguous, generate a list of clarification questions that should be asked to disambiguate the sentence.
+Output format should be as follows-
+Prediction: < Ambiguous / Unambiguous >
+List of Clarification Questions: <Numbered List>
+Sentence: {sentence}
+"""
+
+# Chain of Thought Prompt
+prompt_template = """
+You are a legal assistant tasked with analyzing contractual sentences for ambiguities.
+Task: Given a contractual sentence, reason step by step if the sentence is ambiguous or unambiguous. In case the sentence is ambiguous, generate a list of clarification questions that should be asked to disambiguate the sentence.
+Output format should be as follows-
+Prediction: Let's think step by step <specify reason>. Therefore, the sentence is < Ambiguous / Unambiguous >
+List of Clarification Questions: <Numbered List>
+Sentence: {sentence}
+""
+# Modified Chain of Thought Prompt
+prompt_template = """
+You are a legal assistant tasked with analyzing contractual sentences for ambiguities.
+Task: Given a contractual sentence, reason step by step if the sentence is ambiguous or unambiguous. In case the sentence is ambiguous, generate a list of clarification questions that should be asked to disambiguate the sentence.
+Note that a sentence is ambiguous when it is vague, incomplete, or contains unclear references. Even minor ambiguities should be detected. 
+Output format should be as follows-
+Prediction: Let's think step by step <specify reason>. Therefore, the sentence is < Ambiguous / Unambiguous >
+List of Clarification Questions: <Numbered List>
+Sentence: {sentence}
+"""
+
+# Attribute Prompt
+prompt_template = """
+You are a legal assistant tasked with analyzing contractual sentences for ambiguities.
+Task: Given a contractual sentence, identify all vague phrases present in the sentence. Also identify all other details and references missing from the context of the sentence.
+Generate a list of clarification questions that should be asked to clarify each vague phrase and missing detail identified.
+Output format should be as follows-
+Vague Phrases: <Comma-seperated List>
+Missing Details: <Comma-seperated List>
+List of Clarification Questions: <Numbered List>
+Sentence: {sentence}
+"""
